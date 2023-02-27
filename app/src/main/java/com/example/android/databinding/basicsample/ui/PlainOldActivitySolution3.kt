@@ -61,15 +61,15 @@ class PlainOldActivitySolution3 : AppCompatActivity() {
      */
     private fun updateLikes() {
         findViewById<TextView>(R.id.likes).text = viewModel.likes.toString()
-        findViewById<ProgressBar>(R.id.progressBar).progress =
-            (viewModel.likes * 100 / 5).coerceAtMost(100)
+      //  findViewById<ProgressBar>(R.id.progressBar).progress =
+        //    (viewModel.likes * 100 / 5).coerceAtMost(100)
         val image = findViewById<ImageView>(R.id.imageView)
 
-        val color = getAssociatedColor(viewModel.popularity, this)
+      //  val color = getAssociatedColor(viewModel.popularity, this)
 
-        ImageViewCompat.setImageTintList(image, ColorStateList.valueOf(color))
+       // ImageViewCompat.setImageTintList(image, ColorStateList.valueOf(color))
 
-        image.setImageDrawable(getDrawablePopularity(viewModel.popularity, this))
+      //  image.setImageDrawable(getDrawablePopularity(viewModel.popularity, this))
     }
 
     private fun getAssociatedColor(popularity: Popularity, context: Context): Int {

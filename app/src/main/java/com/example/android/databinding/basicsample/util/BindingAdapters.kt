@@ -77,6 +77,21 @@ fun hideIfZero(view: View, number: Int) {
     view.visibility = if (number == 0) View.GONE else View.VISIBLE
 }
 
+@BindingAdapter("app:popularity")
+fun setPopularityDrawable(imageView: ImageView, popularity: Popularity) {
+    when (popularity) {
+        Popularity.NORMAL -> imageView.setImageResource(R.drawable.ic_person_black_96dp)
+        Popularity.POPULAR -> {
+            imageView.setImageResource(R.drawable.ic_whatshot_black_96dp)
+            imageView.drawable.setTint(getAssociatedColor(popularity, imageView.context))
+        }
+        Popularity.STAR -> {
+            imageView.setImageResource(R.drawable.ic_whatshot_black_96dp)
+            imageView.drawable.setTint(getAssociatedColor(popularity, imageView.context))
+        }
+    }
+}
+
 private fun getAssociatedColor(popularity: Popularity, context: Context): Int {
     return when (popularity) {
         Popularity.NORMAL -> context.theme.obtainStyledAttributes(
